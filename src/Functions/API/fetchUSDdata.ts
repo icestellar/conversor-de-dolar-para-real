@@ -1,5 +1,5 @@
 import axios from "axios";
-const fetchUSDData = async () => {
+const FetchUSDData = async () => {
       try {
         const result = await axios('https://economia.awesomeapi.com.br/json/last/USD-BRL')
         return result.data.USDBRL
@@ -8,4 +8,4 @@ const fetchUSDData = async () => {
       }
 }
 
-export default fetchUSDData
+export default FetchUSDData
