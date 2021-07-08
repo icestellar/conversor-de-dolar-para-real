@@ -3,18 +3,21 @@ import GlobalStyle from '../../globalStyle';
 import Header from '../Header/Header';
 import FetchUSDData from "../../Functions/API/FetchUSDdata";
 import { formatDate } from '../../Functions/Utils/FormatData';
-import DolarForm from '../DolarData/DolarForm';
-import PaymentMethod from '../PaymentMethod/PaymentMethod';
+import DollarForm from '../DollarForm/DollarForm';
+import Result from '../Result/Result';
 
 function App() {
   const [day, setDay] = useState("")
   const [hour, setHour] =  useState("")
-  const [dolarAmount, setDolarAmount] = useState("");
+  const [dollarCurrentValue, setdollarCurrentValue] = useState(0)
+  const [dollarAmount, setdollarAmount] = useState("");
   const [percentage, setPercentage] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState("dinheiro");
+  const [convertClicked, setConvertClicked] = useState(true);
+
 useEffect(() => {
   FetchUSDData().then( (apiData) => {
-    setHour(apiData.ask)
+    setdollarCurrentValue(apiData.ask)
     setDay(formatDate(apiData.create_date).day)
     setHour(formatDate(apiData.create_date).hour)
   });
@@ -23,9 +26,23 @@ useEffect(() => {
   return (
     <div className="App">
       <GlobalStyle />
-      <Header day={day} hour={hour}/> 
-      <DolarForm dolarAmount={dolarAmount} dolarAmountHandler={setDolarAmount} percentage={percentage} percentageHandler={setPercentage}/>
-      <PaymentMethod paymentMethod={paymentMethod} paymentMethodHandler={setPaymentMethod}/>
+      <Header day={day} hour={hour}/>
+      <div>
+        {(convertClicked) ? <DollarForm dollarAmount={dollarAmount} 
+                  dollarAmountHandler={setdollarAmount} 
+                  percentage={percentage} 
+                  percentageHandler={setPercentage} 
+                  paymentMethod={paymentMethod} 
+                  paymentMethodHandler={setPaymentMethod} 
+                  convertClicked={convertClicked}
+                  convertClickedHandler={setConvertClicked}/> : 
+
+                  <Result dollarCurrentValue={dollarCurrentValue} 
+                          dollarAmount={dollarAmount} 
+                          percentage={percentage}
+                          paymentMethod={paymentMethod}
+                          backClicked={!convertClicked} backClickedHandler={setConvertClicked}/>}
+      </div>
     </div>
   );
 }
