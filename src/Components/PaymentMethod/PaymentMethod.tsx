@@ -2,8 +2,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { FormLabel, FormControl, FormControlLabel, RadioGroup, Radio, RadioProps } from '@material-ui/core';
 
 interface iProps{
-  paymentMethod: any, 
-  paymentMethodHandler: any
+  paymentMethod: string, 
+  paymentMethodHandler: Function
 }
 
 const PaymentMethod = (props:iProps) => {
@@ -26,8 +26,8 @@ const GreenRadio = withStyles({
     <FormControl component="fieldset">
     <FormLabel component="legend">Payment Method</FormLabel>
     <RadioGroup aria-label="PaymentMethod" name="PaymentMethod" value={props.paymentMethod} onChange={(event) => {props.paymentMethodHandler(handlePaymentChange(event))}} row>
-      <FormControlLabel value="1" control={<GreenRadio />} label="Dinheiro"/>
-      <FormControlLabel value="2" control={<GreenRadio />} label="Cartão"/>
+      <FormControlLabel value="dinheiro" control={<GreenRadio />} label="Dinheiro"/>
+      <FormControlLabel value="cartao" control={<GreenRadio />} label="Cartão"/>
     </RadioGroup>
   </FormControl>
     );
