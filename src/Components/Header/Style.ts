@@ -1,28 +1,39 @@
 import styled from "styled-components";
+const MainBox = styled.div`
+    padding: 0em 0em 4em;
+    @media(max-width: 640px){
+        padding: 0em 0em 2em;
+    }
+`
 const Img = styled.img`
-    width: 168px;
+    img{
+    width: 12em;
     height: auto;
-`;
-
-const ContainerDiv = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 3% 3%;
-    flex-direction: row;
+   }
+   @media(max-width: 1100px){
+        width: 9.2em;
+        height: auto;
+       }
 `;
 
 const ContainerText = styled.div`
-    flex-direction: column;
-    padding: 0% 3%;
-    .main-text{
-        font-weight: 500;
-        font-size: 18px; 
-    }
-    .info-text{
-        color:#8C9CAD; 
-        font-weight: 400;
-        font-size: 14px
+    flex-flow: column;
+    justify-content: center;
+    wrap: no-wrap;
+    @media (min-width: 850px){
+        padding-left: 10px;
     }
 `;
-export {Img, ContainerDiv,ContainerText}
-  
+
+const Info = styled.p`
+    font-weight: 500;
+    font-size: 18px;
+    color: #45505E;
+`;
+
+const InfoMorning = styled.p`
+    font-weight: 500;
+    font-size: 14px;
+    color: #8C9CAD;
+`;
+export { Img, ContainerText, MainBox, Info, InfoMorning }

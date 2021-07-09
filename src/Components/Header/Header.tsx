@@ -1,4 +1,5 @@
-import { ContainerDiv, Img, ContainerText } from './Style';
+import Grid from '@material-ui/core/Grid';
+import { Img, ContainerText, MainBox, Info, InfoMorning} from './Style';
 import Logo from "../../Assets/Images/Logo.svg"
 
 interface  iProps{
@@ -7,13 +8,21 @@ interface  iProps{
 }
 const Header = (props:iProps) =>{
     return (
-        <ContainerDiv>
-            <Img src={Logo}></Img>
-            <ContainerText>
-                <p className="main-text">{props.day} &emsp;| &emsp; {props.hour} UTC</p>
-                <p className="info-text"> Dados de câmbio disponibilizados pela Morningstar.</p>
-            </ContainerText>
-        </ContainerDiv>
+        <>
+           <MainBox>
+           <Grid container>
+                <Grid item xs={12} md={2} lg={2}>
+                    <Img src={Logo}></Img>
+                </Grid>
+                <Grid item xs={12} md={8} lg={3} style={{paddingRight: "40px"}}>
+                   <ContainerText>
+                    <Info>{props.day} | {props.hour} UTC</Info>
+                    <InfoMorning>Dados de câmbio disponibilizados pela Morningstar.</InfoMorning>
+                   </ContainerText>
+                </Grid>
+            </Grid>
+           </MainBox>
+        </>
       );
     };
 
