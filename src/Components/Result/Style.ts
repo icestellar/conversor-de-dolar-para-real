@@ -10,4 +10,9 @@ const ConvertText = styled.h1`
     color: #00AB63;
 `;
 
-export {TitleText, ConvertText}
+const InfoText = styled.h1`
+  color: #6E7E90;
+  font-size: 14px;
+  font-weight: 400
+`
+export {TitleText, ConvertText, InfoText}
