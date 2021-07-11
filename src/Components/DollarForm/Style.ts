@@ -7,6 +7,7 @@ const FormBox = styled.div`
 `;
 const GreenTextField = withStyles({
   root: {
+    paddingRight: '30px',
     '& label.Mui-focused': {
       color: '#008B57',
     },

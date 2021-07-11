@@ -13,7 +13,8 @@ const ConvertButtonStyled = withStyles(() => ({
       },
       '&:disabled':{
           backgroundColor: "#8C9CAD",
-          color: "#fff"
+          color: "#fff",
+          border: "1px solid #008B57"
       }
     },
   }))(Button);

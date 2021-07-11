@@ -14,9 +14,9 @@ const Header = (props:iProps) =>{
                 <Grid item xs={12} md={2} lg={2}>
                     <Img src={Logo}></Img>
                 </Grid>
-                <Grid item xs={12} md={8} lg={3} style={{paddingRight: "40px"}}>
+                <Grid item xs={12} md={8} lg={4} style={{paddingRight: "40px"}}>
                    <ContainerText>
-                    <Info>{props.day} | {props.hour} UTC</Info>
+                    <Info>{props.day} | {props.hour} </Info>
                     <InfoMorning>Dados de câmbio disponibilizados pela Morningstar.</InfoMorning>
                    </ContainerText>
                 </Grid>

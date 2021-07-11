@@ -26,7 +26,7 @@ const PaymentMethod = (props: iProps) => {
     <PaymentBox>
       <FormControl component="fieldset">
         <Label>Tipo de Compra</Label>
-        <RadioGroup aria-label="PaymentMethod" name="PaymentMethod" value={props.paymentMethod} onChange={(event) => { props.paymentMethodHandler(handlePaymentChange(event)) }} row>
+        <RadioGroup aria-label="PaymentMethod" name="PaymentMethod" value={props.paymentMethod} onChange={(event:any) => { props.paymentMethodHandler(handlePaymentChange(event)) }} row>
           <FormControlLabel value="dinheiro" control={<GreenRadio />} label="Dinheiro" />
           <FormControlLabel value="cartao" control={<GreenRadio />} label="Cartão" />
         </RadioGroup>
