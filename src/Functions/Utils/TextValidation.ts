@@ -1,11 +1,15 @@
 const CheckIfInputIsValid = (value:string, percentage:string) => {
-    return value && percentage
+    return Number(value) > 0  && Number(percentage) > 0
 }
-const ReturnFormatted = (number:string) => {
-    return Number(number).toFixed(2) != "0.00" ? Number(number).toFixed(2) : "" 
+const ReturnFormatted = (text:string) => {
+    return Number(text).toFixed(2) != "0.00" ? Number(text).toFixed(2) : "" 
 }
 
-const ReturnPositive = (number:string) =>{
-    return Number(number) >= 0 ? number : - number
+const ReturnPositive = (text:string) =>{
+    return Number(text) >= 0 ? text : - text
 }
-export { CheckIfInputIsValid, ReturnFormatted, ReturnPositive}
+
+const ReturnValidPercentage = (text:string) => {
+    return Number(text) >= 0 && Number(text) < 10000 ? text : ""
+}
+export { CheckIfInputIsValid, ReturnFormatted, ReturnPositive, ReturnValidPercentage}
