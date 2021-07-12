@@ -2,7 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import PaymentMethod from '../PaymentMethod';
 import { ConvertButton } from '../Buttons';
-import { FormBox, GreenTextField } from './Style';
+import { FormBox, TextFieldBox, Label, GreenTextField } from './Style';
 import { ReturnFormatted, ReturnPositive, ReturnValidPercentage } from '../../Functions/Utils/TextValidation';
 
 interface iProps {
@@ -24,39 +24,42 @@ const DollarForm = (props: iProps) => {
       <FormBox>
         <Grid container>
           <Grid item xs={12} sm={12} md={3} lg={2}>
-            <GreenTextField
-              variant="outlined"
-              margin="normal"
-              name="dollarAmount"
-              label="Dólar"
-              id="dollarAmount"
-              autoFocus
-              required
-              type="number"
-              value={ReturnPositive(props.dollarAmount)}
-              onChange={(event) => { props.dollarAmountHandler(event.target.value) }}
-              onBlur={(event) => { props.dollarAmountHandler(ReturnFormatted(event.target.value))}}
-              InputProps={{
-                startAdornment: <InputAdornment position="start">$</InputAdornment>
-              }}
-            />
+            <TextFieldBox>
+              <Label>Dólar</Label>
+              <GreenTextField
+                variant="outlined"
+                margin="normal"
+                name="dollarAmount"
+                id="dollarAmount"
+                autoFocus
+                required
+                type="number"
+                value={ReturnPositive(props.dollarAmount)}
+                onChange={(event: any) => { props.dollarAmountHandler(event.target.value) }}
+                onBlur={(event: any) => { props.dollarAmountHandler(ReturnFormatted(event.target.value)) }}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>
+                }}
+              />
+            </TextFieldBox>
           </Grid>
           <Grid item xs={12} sm={12} md={3} lg={2}>
-            <GreenTextField
-              variant="outlined"
-              margin="normal"
-              name="taxState"
-              required
-              label="Taxa do estado"
-              id="password"
-              type="number"
-              value={ReturnValidPercentage(props.percentage)}
-              onChange={(event:any) => { props.percentageHandler(event.target.value) }}
-              onBlur={(event:any) => { props.percentageHandler(ReturnFormatted(event.target.value))}}
-              InputProps={{
-                startAdornment: <InputAdornment position="start">%</InputAdornment>,
-              }}
-            />
+            <TextFieldBox>
+              <Label>Taxa do estado</Label>
+              <GreenTextField
+                variant="outlined"
+                margin="normal"
+                name="taxState"
+                required
+                type="number"
+                value={ReturnValidPercentage(props.percentage)}
+                onChange={(event: any) => { props.percentageHandler(event.target.value) }}
+                onBlur={(event: any) => { props.percentageHandler(ReturnFormatted(event.target.value)) }}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">%</InputAdornment>,
+                }}
+              />
+            </TextFieldBox>
           </Grid>
         </Grid>
       </FormBox>
