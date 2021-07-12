@@ -3,8 +3,19 @@ import { TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 const FormBox = styled.div`
-  padding-bottom: 2.5rem;
+  padding-bottom: 1rem;
 `;
+
+const TextFieldBox = styled.div`
+  flex-flow: column;
+`;
+
+const Label = styled.h1`
+  font-size: 18px; 
+  margin-block: 0;
+  margin-inline:0;
+`;
+
 const GreenTextField = withStyles({
   root: {
     paddingRight: '30px',
@@ -17,6 +28,7 @@ const GreenTextField = withStyles({
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
         borderColor: '#D7E0EB',
+        boxShadow: "0px 8px 4px rgba(13, 17, 27, 0.08)"
       },
       '&:hover fieldset': {
         borderColor: '#008B57',
@@ -28,4 +40,4 @@ const GreenTextField = withStyles({
   },
 })(TextField);
 
-export {FormBox, GreenTextField}
+export {FormBox, TextFieldBox, Label, GreenTextField}

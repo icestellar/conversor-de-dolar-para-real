@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const MainBox = styled.div`
-    padding: 0em 0em 4em;
+    padding: 0em 0em 5em;
     @media(max-width: 640px){
         padding: 0em 0em 2em;
     }
@@ -25,15 +25,18 @@ const ContainerText = styled.div`
     }
 `;
 
-const Info = styled.p`
-    font-weight: 500;
+const Info = styled.h1`
     font-size: 18px;
     color: #45505E;
 `;
 
-const InfoMorning = styled.p`
+const InfoMorning = styled.h1`
     font-weight: 500;
     font-size: 14px;
     color: #8C9CAD;
 `;
-export { Img, ContainerText, MainBox, Info, InfoMorning }
+const InfoBox = styled.div`
+    padding-right: 40px;
+`;
+
+export { Img, ContainerText, MainBox, Info, InfoMorning, InfoBox }

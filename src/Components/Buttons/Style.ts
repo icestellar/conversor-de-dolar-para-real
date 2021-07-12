@@ -8,6 +8,7 @@ const ConvertButtonStyled = withStyles(() => ({
       textTransform: "capitalize",
       padding: "16px",
       fontSize: "16px",
+      boxShadow: "0px 8px 4px rgba(13, 17, 27, 0.08)",
       '&:hover': {
         backgroundColor: "#00AB63",
       },
@@ -24,8 +25,10 @@ const ConvertButtonStyled = withStyles(() => ({
       color: "#2E3742",
       backgroundColor: "#fff",
       textTransform: "capitalize",
-      padding: "16px",
+      padding: "10px",
       fontSize: "16px",
+      border: "1px solid rgba(13, 17, 27, 0.05)",
+      boxShadow: "0px 8px 4px rgba(13, 17, 27, 0.08)",
       '&:hover': {
         backgroundColor: "#ececec",
       },
