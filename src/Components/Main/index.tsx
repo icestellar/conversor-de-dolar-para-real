@@ -1,15 +1,27 @@
+//Packages
 import { useEffect, useState } from 'react';
+
+//Style
+import GlobalStyle from '../GlobalStyle';
+
+//Components
 import Header from '../Header';
-import FetchUSDData from "../../Functions/API/FetchUSDdata";
-import { FormatDate } from '../../Functions/Utils/FormatDate';
 import DollarForm from '../DollarForm';
 import Result from '../Result';
+
+//Functions
 import { CheckIfInputIsValid } from '../../Functions/Utils/TextValidation';
-import GlobalStyle from '../GlobalStyle';
-function App() {
-  const [day, setDay] = useState("")
-  const [hour, setHour] = useState("")
-  const [dollarCurrentValue, setdollarCurrentValue] = useState(0)
+
+interface iProps{
+  day: any, 
+  hour: any,
+  dollarCurrentValue: Number, 
+  dayHandler: Function, 
+  hourHandler: Function
+}
+
+const Main = (props: iProps) => {
+
   const [dollarAmount, setdollarAmount] = useState("");
   const [percentage, setPercentage] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("dinheiro");
@@ -17,21 +29,14 @@ function App() {
   const [enableButton, setEnableButton] = useState(true);
 
   useEffect(() => {
-    FetchUSDData().then((apiData) => {
-      setdollarCurrentValue(apiData.ask || 0)
-      setDay(FormatDate(apiData.create_date).day)
-      setHour(FormatDate(apiData.create_date).hour)
-    });
-  }, []);
-
-  useEffect(() => {
     setEnableButton(!CheckIfInputIsValid(dollarAmount, percentage))
   }, [dollarAmount, percentage]);
 
   return (
-    <div className="App">
+    <div className="">
+      
       <GlobalStyle />
-      <Header day={day} hour={hour} />
+      <Header currentValue={props.dollarCurrentValue} day={props.day} hour={props.hour} />
       <div>
         {(convertClicked) ? <DollarForm dollarAmount={dollarAmount}
           dollarAmountHandler={setdollarAmount}
@@ -43,7 +48,7 @@ function App() {
           convertClickedHandler={setConvertClicked}
           enabledButton={enableButton} />
           :
-          <Result dollarCurrentValue={dollarCurrentValue}
+          <Result dollarCurrentValue={props.dollarCurrentValue}
             dollarAmount={dollarAmount}
             percentage={percentage}
             paymentMethod={paymentMethod}
@@ -54,4 +59,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;
