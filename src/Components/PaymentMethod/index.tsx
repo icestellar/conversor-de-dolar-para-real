@@ -5,6 +5,15 @@ interface iProps {
   paymentMethod: string,
   paymentMethodHandler: Function
 }
+const GreenRadio = withStyles({
+  root: {
+    color: "#808080",
+    '&$checked': {
+      color: "#008B57",
+    },
+  },
+  checked: {},
+})((props: RadioProps) => <Radio color="default" {...props} />);
 
 const PaymentMethod = (props: iProps) => {
 
@@ -12,15 +21,6 @@ const PaymentMethod = (props: iProps) => {
     return ((event.target as HTMLInputElement).value);
   };
 
-  const GreenRadio = withStyles({
-    root: {
-      color: "#808080",
-      '&$checked': {
-        color: "#008B57",
-      },
-    },
-    checked: {},
-  })((props: RadioProps) => <Radio color="default" {...props} />);
 
   return (
     <PaymentBox>
