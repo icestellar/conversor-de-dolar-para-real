@@ -13,7 +13,7 @@ const BackButton = (props:iProps) =>{
         <BackButtonStyled 
         variant="contained"
         size="large"
-        startIcon={<ArrowBackIcon />} onClick={() => {document.location.reload()}}>{props.btnName}</BackButtonStyled>
+        startIcon={<ArrowBackIcon />} onClick={() => {document.location.reload()}}>&nbsp;{props.btnName}</BackButtonStyled>
     )
 }
 const ConvertButton = (props:iProps) =>{
