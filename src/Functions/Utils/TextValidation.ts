@@ -10,6 +10,8 @@ const ReturnPositive = (text:string) =>{
 }
 
 const ReturnValidPercentage = (text:string) => {
-    return Number(text) >= 0 && Number(text) < 10000 ? text : ""
+    if(Number(text) <= 0 ) return ""
+    if(Number(text) >= 10000) return "9999"
+    return text
 }
 export { CheckIfInputIsValid, ReturnFormatted, ReturnPositive, ReturnValidPercentage}

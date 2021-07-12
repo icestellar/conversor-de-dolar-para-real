@@ -17,6 +17,6 @@ test("Testando o método ReturnPositive", () => {
 });
 
 test("Testando o método ReturnValidPercentage", () => {
-    expect(ReturnValidPercentage("10000")).toBe("")
+    expect(ReturnValidPercentage("10000")).toBe("9999")
     expect(ReturnValidPercentage("-10000")).toBe("")
 });
