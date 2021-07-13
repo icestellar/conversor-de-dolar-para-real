@@ -20,7 +20,7 @@ function App() {
   const [hasError, sethasError] = useState(false);
 
   useEffect(() => {
-    FetchUSDData().then((apiData) => {
+    FetchDolarData().then((apiData) => {
       if(apiData.ask && apiData.create_date){
         setdollarCurrentValue(apiData.ask || 0)
         setDay(FormatDate(apiData.create_date).day)
