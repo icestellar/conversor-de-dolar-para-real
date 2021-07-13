@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import GlobalStyle from '../GlobalStyle';
 
 //Functions
-import FetchDolarData from "../../Functions/API/fetchDolarData.ts";
-import { FormatDate } from '../../Functions/Utils/FormatDate.ts';
+import FetchDolarData from "../../Functions/API/fetchDolarData";
+import { FormatDate } from '../../Functions/Utils/FormatDate';
 
 //Components
 import Error from '../Error';
